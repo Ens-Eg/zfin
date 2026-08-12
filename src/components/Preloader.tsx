@@ -146,28 +146,19 @@ function EnsMark() {
 export default function Preloader() {
   const t = useTranslations("preloader");
   const locale = useLocale();
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    try {
-      if (sessionStorage.getItem("ens-preloader") === "1") return;
-    } catch {
-      /* ignore */
-    }
-    if (BOT_UA.test(navigator.userAgent)) return;
-
-    setVisible(true);
-    try {
-      sessionStorage.setItem("ens-preloader", "1");
-    } catch {
-      /* ignore */
+    if (BOT_UA.test(navigator.userAgent)) {
+      setVisible(false);
+      return;
     }
 
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const hold = reduced ? 300 : 1600;
+    const hold = reduced ? 900 : 2400;
     const timer = window.setTimeout(() => setVisible(false), hold);
 
     return () => {
@@ -180,7 +171,7 @@ export default function Preloader() {
     <AnimatePresence onExitComplete={() => (document.body.style.overflow = "")}>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-100 flex items-center justify-center overflow-hidden bg-linear-to-b from-white via-[#f4f2f8] to-[#d8d4e2]"
+          className="fixed inset-0 z-[9999] flex h-dvh w-full items-center justify-center overflow-hidden bg-linear-to-b from-white via-[#f4f2f8] to-[#d8d4e2]"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
