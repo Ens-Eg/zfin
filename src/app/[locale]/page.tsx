@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import HomeVideo from "@/components/HomeVideo";
 import { buildMetadata } from "@/lib/seo";
+
+function isMobileUserAgent(ua: string) {
+  return /iPhone|iPad|iPod|Android|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+    ua,
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -37,14 +44,16 @@ export default async function HomePage({
   const desktopSrc = locale === "en" ? "/intro-en.mp4" : "/intro.mp4";
   const mobileSrc =
     locale === "en" ? "/mobile-intro-en.mp4" : "/mobile-intro.mp4";
+  const ua = (await headers()).get("user-agent") ?? "";
+  const src = isMobileUserAgent(ua) ? mobileSrc : desktopSrc;
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 h-full min-h-dvh w-full overflow-hidden bg-black">
       <h1 className="sr-only">
         {t("title1")} {t("titleHighlight")} {t("title2")}
       </h1>
       <p className="sr-only">{t("subtitle")}</p>
-      <HomeVideo desktopSrc={desktopSrc} mobileSrc={mobileSrc} />
+      <HomeVideo src={src} />
     </div>
   );
 }
