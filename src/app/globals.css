@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbfaff;
+  --foreground: #1b1533;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-50: #f5f2ff;
+  --color-brand-100: #ece6ff;
+  --color-brand-200: #dbd0ff;
+  --color-brand-300: #bfa8ff;
+  --color-brand-400: #9f78ff;
+  --color-brand-500: #8347ff;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6a21d1;
+  --color-brand-800: #581cab;
+  --color-brand-900: #49198c;
+  --color-brand-950: #2d0e5e;
+
+  --color-ink-900: #1b1325;
+  --color-ink-800: #241a31;
+
+  --font-sans: var(--font-cairo), var(--font-inter), system-ui, sans-serif;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[lang="ar"] {
+  font-size: 15px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+/* RTL-aware marquee direction */
+[dir="rtl"] .marquee-track {
+  animation-direction: reverse;
+}
+
+/* Magic Bento */
+.bento-card {
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  position: relative;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.bento-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at var(--glow-x) var(--glow-y),
+    rgba(124, 58, 237, calc(var(--glow-intensity) * 0.85)) 0%,
+    rgba(139, 92, 246, calc(var(--glow-intensity) * 0.4)) 35%,
+    transparent 65%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bento-card:hover {
+  box-shadow:
+    0 8px 30px rgba(124, 58, 237, 0.12),
+    0 0 40px rgba(124, 58, 237, 0.1);
+}
+
+.bento-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--glow-intensity);
+  background: radial-gradient(
+    420px circle at var(--glow-x) var(--glow-y),
+    rgba(139, 92, 246, 0.1) 0%,
+    rgba(124, 58, 237, 0.04) 40%,
+    transparent 70%
+  );
+  transition: opacity 0.35s ease;
+}
+
+.bento-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: #8b5cf6;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.7);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bento-card:hover .bento-particle {
+  opacity: 0.9;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(124, 58, 237, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.card-dark {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* ensmenu AI chat mockup */
+@keyframes hero-chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-chat-animate-in {
+  animation: hero-chat-in 0.38s ease-out both;
+}
+
+.hero-chat-typing span {
+  animation: hero-chat-dot 1.1s ease-in-out infinite;
+}
+
+.hero-chat-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.hero-chat-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes hero-chat-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-chat-animate-in,
+  .hero-chat-typing span,
+  .marquee-track,
+  .bento-particle {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

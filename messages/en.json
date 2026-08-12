@@ -1,0 +1,617 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "showcases": "Our Work",
+    "about": "About",
+    "contact": "Contact Us",
+    "getStarted": "Start Your Project"
+  },
+  "hero": {
+    "badge": "AI that turns your idea into a working product",
+    "title1": "We build digital solutions",
+    "titleHighlight": "that shape the future",
+    "title2": "of your business",
+    "subtitle": "We develop practical AI and software solutions that help companies understand their data and make faster, more accurate decisions — through smart systems that solve real problems and boost efficiency day after day.",
+    "cta": "Connect Now",
+    "ctaSecondary": "Explore Our Work",
+    "tags": {
+      "software": "Software Development",
+      "mobile": "Mobile Apps",
+      "cloud": "Cloud Computing",
+      "databases": "Databases",
+      "apis": "APIs",
+      "ai": "Artificial Intelligence",
+      "web": "Web Development",
+      "security": "Cyber Security"
+    },
+    "dashboard": {
+      "title": "Project Map",
+      "badge": "Launch Ready",
+      "rows": {
+        "analysis": { "label": "Analysis & Study", "tag": "Research" },
+        "design": { "label": "UI/UX Design", "tag": "Prototypes" },
+        "develop": { "label": "Development", "tag": "Code" },
+        "launch": { "label": "Launch", "tag": "Deploy" }
+      },
+      "stats": {
+        "performance": { "label": "Performance", "value": "98%", "delta": "+12%" },
+        "uptime": { "label": "System Uptime", "value": "99.9%", "delta": "24/7" },
+        "satisfaction": { "label": "Client Satisfaction", "value": "4.9/5", "delta": "+8%" },
+        "growth": { "label": "Business Growth", "value": "3.2x", "delta": "+1.4x" }
+      },
+      "timeline": {
+        "t1": "Discover & Analyze",
+        "t2": "Design & Brand",
+        "t3": "Build & Test",
+        "t4": "Launch & Grow"
+      }
+    }
+  },
+  "stats": {
+    "projects": "Successful Projects",
+    "clients": "Happy Clients",
+    "years": "Years of Experience",
+    "support": "Technical Support"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "End-to-End Tech Solutions",
+    "subtitle": "From the first idea to launch and continuous development, we deliver comprehensive technology services for companies and entrepreneurs across all industries.",
+    "viewAll": "View All Services",
+    "items": {
+      "web": {
+        "title": "Professional Web Development",
+        "description": "We design and build fast, modern, fully responsive websites that deliver the best possible user experience.",
+        "features": ["Corporate websites", "Custom web platforms", "SEO optimization", "High speed & performance"]
+      },
+      "systems": {
+        "title": "Custom Systems & Enterprise Software",
+        "description": "We build tailored management systems that fit your business — from CRM to inventory, sales, and resources.",
+        "features": ["CRM systems", "Inventory & sales systems", "Internal portals & systems", "Smart dashboards"]
+      },
+      "mobile": {
+        "title": "Mobile App Design & Development",
+        "description": "We develop high-performance, interactive mobile apps for iOS and Android that help you reach your customers anywhere.",
+        "features": ["iOS & Android apps", "Seamless user experience", "Push notifications", "Backend integration"]
+      },
+      "ai": {
+        "title": "AI & Machine Learning Solutions",
+        "description": "We integrate AI technologies into your projects to automate tasks, analyze data, and enhance the user experience.",
+        "features": ["Smart chatbots", "Data analysis & prediction", "Process automation", "Natural language processing"]
+      },
+      "ecommerce": {
+        "title": "E-Commerce & Online Stores",
+        "description": "We build complete online stores with secure payment gateways and order management systems that help you sell efficiently.",
+        "features": ["Complete online stores", "Secure payment gateways", "Order & shipping management", "Coupons & offers"]
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "We craft attractive interfaces and smooth user experiences that put users first and achieve your business goals.",
+        "features": ["User research & analysis", "Interactive prototypes", "Design systems", "Usability testing"]
+      },
+      "apis": {
+        "title": "Systems Integration & APIs",
+        "description": "We connect your project with payment gateways, ERP and CRM systems, shipping services, and various APIs with ease.",
+        "features": ["Payment gateways", "ERP & CRM systems", "Shipping & delivery services", "Custom APIs"]
+      },
+      "hosting": {
+        "title": "Hosting, Support & Maintenance",
+        "description": "We provide reliable hosting solutions with continuous technical support and regular updates that keep your project growing around the clock.",
+        "features": ["Reliable cloud hosting", "24/7 technical support", "Regular backups", "Performance & security monitoring"]
+      }
+    },
+    "page": {
+      "title": "Services That Make a Difference",
+      "subtitle": "End-to-end tech solutions from idea to launch, tailored to fit your business needs.",
+      "process": {
+        "badge": "How We Work",
+        "title": "How do we turn your idea into a real product?",
+        "steps": {
+          "discover": {
+            "title": "Discovery & Analysis",
+            "description": "We listen to your idea, analyze your requirements, and study the market to build a clear project plan."
+          },
+          "design": {
+            "title": "Design & Prototyping",
+            "description": "We design the UI and UX with interactive prototypes before development begins."
+          },
+          "develop": {
+            "title": "Development & Testing",
+            "description": "We build the product with the latest technologies and continuous testing to guarantee quality and performance."
+          },
+          "launch": {
+            "title": "Launch & Support",
+            "description": "We launch your project and stay with you through technical support, updates, and continuous development."
+          }
+        }
+      }
+    }
+  },
+  "bento": {
+    "badge": "Our Capabilities",
+    "title": "One Complete Tech Ecosystem",
+    "subtitle": "Everything your project needs in one place — modern technologies, strong security, and high performance around the clock.",
+    "cards": {
+      "ai": {
+        "label": "Artificial Intelligence",
+        "title": "Practical AI That Serves Your Business",
+        "description": "Smart systems that analyze your data, automate your tasks, and help you make faster, more accurate decisions — from chatbots to data analysis and prediction."
+      },
+      "web": {
+        "label": "Web",
+        "title": "Websites & Web Apps",
+        "description": "Fast, modern, and fully responsive on every device."
+      },
+      "mobile": {
+        "label": "Mobile",
+        "title": "iOS & Android Apps",
+        "description": "Smooth user experience with high performance."
+      },
+      "security": {
+        "label": "Security",
+        "title": "Protection & Cyber Security",
+        "description": "The latest security standards to protect your data and your customers'."
+      },
+      "cloud": {
+        "label": "Cloud",
+        "title": "Hosting & Cloud Computing",
+        "description": "Reliable infrastructure running around the clock."
+      },
+      "integration": {
+        "label": "Integration",
+        "title": "Systems Integration & APIs",
+        "description": "Payment gateways, ERP & CRM systems, and shipping services — all connected in one system."
+      }
+    }
+  },
+  "journey": {
+    "badge": "Your Project Journey",
+    "title": "The Path Your Project Takes Until We Deliver It",
+    "subtitle": "Step by step — from the moment you share your idea until you receive a working product, and we stay with you after that.",
+    "steps": {
+      "idea": {
+        "title": "The Idea",
+        "description": "We listen to your idea, understand your goals and your business, and define together what success looks like."
+      },
+      "analysis": {
+        "title": "Study & Analysis",
+        "description": "We study the market and competitors, analyze requirements, and set a clear plan with a defined timeline and cost."
+      },
+      "design": {
+        "title": "UI/UX Design",
+        "description": "We design the interfaces and user experience, and show you interactive prototypes to refine before writing a single line of code."
+      },
+      "develop": {
+        "title": "Development",
+        "description": "We build the product with the latest technologies, delivering test versions continuously so you can follow the progress yourself."
+      },
+      "test": {
+        "title": "Testing & Quality",
+        "description": "Comprehensive testing for performance, security, and user experience on all devices before launch."
+      },
+      "launch": {
+        "title": "Launch",
+        "description": "We deploy the project on reliable hosting and make sure everything runs efficiently from day one."
+      },
+      "support": {
+        "title": "Continuous Support & Growth",
+        "description": "Our role doesn't stop at delivery — continuous updates, technical support, and improvements that guarantee your project's growth."
+      }
+    }
+  },
+  "featured": {
+    "badge": "Featured Project",
+    "name": "ENS Menu",
+    "title": "The ensmenu Project",
+    "subtitle": "Transform your customers' experience into a complete digital journey with an AI-powered QR Menu — table ordering, delivery, and order management, all from one place.",
+    "cta": "Learn More About the Project",
+    "mockChat": {
+      "assistantName": "Lina",
+      "status": "Online · AI Waiter",
+      "itemsInCart": "{count, plural, one {# item in cart} other {# items in cart}}",
+      "subtotalLine": "Subtotal {amount}",
+      "addToCart": "Add to cart",
+      "addedToCart": "Added to cart",
+      "inputPlaceholder": "Ask Lina anything…",
+      "turns": {
+        "recommend": {
+          "user": "What do you recommend today?",
+          "lina": "Here are today's bestsellers — guests love these:",
+          "products": {
+            "chicken": "Grilled Chicken Plate",
+            "salad": "Caesar Salad"
+          }
+        },
+        "spicy": {
+          "user": "Something spicy, please",
+          "lina": "Perfect — these have a nice kick:",
+          "products": {
+            "shawarma": "Spicy Shawarma Wrap",
+            "wings": "Hot Buffalo Wings"
+          }
+        }
+      }
+    },
+    "features": {
+      "ai": {
+        "title": "AI-Powered Smart Menu",
+        "description": "Shows smart suggestions to customers and answers their questions, improving the ordering experience and increasing sales."
+      },
+      "qr": {
+        "title": "QR Menu, No App Needed",
+        "description": "Customers can browse the menu instantly by scanning a QR code — no app download required."
+      },
+      "table": {
+        "title": "Order From the Table",
+        "description": "Customers send their order directly from the table to the kitchen, quickly and accurately."
+      },
+      "delivery": {
+        "title": "Complete Delivery System",
+        "description": "Receive and manage delivery orders through your website with real-time tracking of every order."
+      },
+      "payment": {
+        "title": "Secure Online Payment",
+        "description": "Support for multiple payment methods — bank cards, e-wallets, or cash on delivery."
+      },
+      "dashboard": {
+        "title": "Professional Dashboard",
+        "description": "Control the menu, prices, orders, branches, and tables from one easy-to-use admin panel."
+      },
+      "reports": {
+        "title": "Reports & Analytics",
+        "description": "View sales reports, top-ordered items, and restaurant performance to make better decisions."
+      },
+      "offers": {
+        "title": "Offers & Discounts",
+        "description": "Create discount coupons, seasonal offers, and special meals to boost sales and attract more customers."
+      },
+      "multi": {
+        "title": "Multi-Language & Multi-Branch",
+        "description": "Manage multiple branches with support for several languages and currencies to serve every customer."
+      }
+    }
+  },
+  "showcases": {
+    "badge": "Our Work",
+    "title": "Our Work.. Ideas Turned Into Digital Success",
+    "subtitle": "We proudly present a collection of projects that reflect our expertise in web development, mobile apps, AI solutions, and digital systems. Every project is carefully crafted to meet our clients' needs and deliver real results that support their growth.",
+    "viewAll": "View All Work",
+    "visitProject": "Visit Project",
+    "projects": {
+      "thawra": {
+        "name": "Al-Thawra Restaurants",
+        "category": "Restaurants & Food",
+        "description": "Design and development of a complete system for the digital menu, online ordering, and delivery service."
+      },
+      "noureldin": {
+        "name": "Nour El-Din",
+        "category": "Retail Stores",
+        "description": "Development and design of the Nour El-Din store chain website with a news magazine and admin panel, plus full technical support."
+      },
+      "usersave": {
+        "name": "UserSave",
+        "category": "Travel & Tourism",
+        "description": "Development and design of the UserSave travel company website with an online trip listing and booking system, plus technical support."
+      },
+      "morshd": {
+        "name": "Morsh D",
+        "category": "Fashion & Clothing",
+        "description": "Development of an online sales system for the Morsh D clothing brand with online ordering technology and technical support."
+      },
+      "labib": {
+        "name": "Labib Stores",
+        "category": "E-Commerce",
+        "description": "Design and development of an e-commerce website for the Labib store chain with an online payment gateway."
+      },
+      "laborex": {
+        "name": "Laborex",
+        "category": "Medical & Pharmaceutical",
+        "description": "Development of the website and order submission system for Laborex, a pharmaceutical and medical supplies company."
+      }
+    }
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Who We Are",
+    "intro1": "At ENS Egypt, we believe technology is not just a set of tools — it's a way to empower companies to grow and achieve their goals. We are an Egyptian company specialized in software development, web design and development, mobile applications, and AI solutions, delivering comprehensive tech services for companies and entrepreneurs across all industries.",
+    "intro2": "We turn ideas into innovative digital solutions that combine quality, performance, and an outstanding user experience. Our team includes specialized developers, designers, and engineers committed to delivering world-class tech products using the latest technologies and best practices.",
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be one of the leading companies in digital transformation and software development in Egypt and the region, by delivering innovative tech solutions that help our clients achieve growth and sustainability."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To deliver advanced, reliable digital solutions that drive business growth, with a commitment to quality, innovation, and building long-term partnerships with our clients."
+    },
+    "values": {
+      "title": "Our Values",
+      "description": "Our work is built on innovation, transparency, quality, teamwork, and a focus on client success. Our clients' success is the true measure of our own."
+    },
+    "why": {
+      "badge": "Why Us?",
+      "title": "Why Choose ENS Egypt?",
+      "items": {
+        "team": {
+          "title": "Specialized Team",
+          "description": "A specialized team experienced in the latest technologies and global best practices."
+        },
+        "custom": {
+          "title": "Tailored Solutions",
+          "description": "Custom solutions that fit every client's needs and the nature of their business."
+        },
+        "quality": {
+          "title": "Quality Commitment",
+          "description": "Commitment to quality and deadlines at every stage of the project."
+        },
+        "support": {
+          "title": "Continuous Support",
+          "description": "Ongoing technical support and post-delivery services to keep your project running."
+        },
+        "tech": {
+          "title": "Latest Technologies",
+          "description": "Using the latest software development and AI technologies."
+        },
+        "pricing": {
+          "title": "Competitive Pricing",
+          "description": "Competitive prices with the highest levels of professionalism."
+        }
+      }
+    },
+    "closing": "ENS Egypt is not just a software development company — it's a technology partner that helps you build the digital future of your business, from the first idea to launch and continuous development."
+  },
+  "contact": {
+    "badge": "Support Center",
+    "title": "Contact Us",
+    "subtitle": "Whether you're a startup or an established company — our team helps you launch digital solutions quickly and efficiently.",
+    "responseNote": "We respond to your inquiries as fast as possible via phone or WhatsApp.",
+    "backHome": "Back to Home",
+    "whatsapp": {
+      "eyebrow": "WhatsApp Support",
+      "title": "Message us on WhatsApp",
+      "description": "Quick replies to your questions, help getting your project started, and technical support from the ENS Egypt team.",
+      "responseTime": "Average reply time: under 5 minutes"
+    },
+    "socialTitle": "Follow us on social media",
+    "detailsTitle": "Contact Information",
+    "call": "Call",
+    "whatsappBtn": "WhatsApp",
+    "sendEmail": "Send Email",
+    "channels": {
+      "ai": {
+        "label": "Smart Assistant",
+        "note": "Coming soon on WhatsApp",
+        "soon": "Soon",
+        "aiBadge": "AI"
+      },
+      "support": {
+        "label": "Technical Support",
+        "phone": "+201553841793"
+      },
+      "email": {
+        "label": "Email",
+        "value": "info@ens.eg"
+      }
+    },
+    "location": {
+      "title": "Our Location",
+      "country": "Egypt",
+      "openMaps": "Open in Google Maps"
+    },
+    "info": {
+      "address": {
+        "title": "Our Address",
+        "value": "Ibn Al-Farid St. with Al-Muahada St., in front of Al-Madina Al-Munawwara stores"
+      },
+      "email": {
+        "title": "Email",
+        "value": "info@ens.eg",
+        "note": "Email us anytime"
+      },
+      "phone": {
+        "title": "Phone / WhatsApp",
+        "value": "+20 15 53841793",
+        "note": "Reach us anytime"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to Start Your Next Project?",
+    "subtitle": "From the first idea to launch, our team is ready to turn your vision into a real digital product.",
+    "button": "Start Now",
+    "buttonSecondary": "Explore Our Services"
+  },
+  "footer": {
+    "description": "An Egyptian company specialized in software development, web design and development, mobile applications, and AI solutions.",
+    "quickLinks": "Quick Links",
+    "servicesTitle": "Our Services",
+    "support": "Technical Support",
+    "legal": "Legal",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "emailLink": "Email",
+    "whatsapp": "WhatsApp",
+    "rights": "All rights reserved",
+    "company": "ENS – Enterprise Network Solutions"
+  },
+  "terms": {
+    "badge": "Legal",
+    "title": "Terms & Conditions",
+    "subtitle": "Clear rules for using the ENS Egypt website and services — written to protect both you and us.",
+    "intro": "Welcome to the ENS Egypt website. By using this website or any of our services, you agree to the following terms and conditions. If you do not agree to any of these terms, please do not use the website or its services.",
+    "lastUpdated": "Last updated: July 23, 2026",
+    "toc": "On this page",
+    "sectionsLabel": "14 sections",
+    "related": {
+      "label": "Related",
+      "title": "Privacy Policy",
+      "description": "Learn how we collect, use, and protect your personal data when you use our website or services.",
+      "cta": "Read privacy policy",
+      "href": "/privacy"
+    },
+    "contactCta": {
+      "title": "Questions about these terms?",
+      "body": "Our team is happy to clarify anything related to these terms or our services.",
+      "button": "Contact us"
+    },
+    "sections": [
+      {
+        "title": "Website Use",
+        "body": "The user agrees to use the website in a lawful and responsible manner, and not to engage in any activity that may disrupt or harm the website, or attempt unauthorized access to any part of its systems or data."
+      },
+      {
+        "title": "Services & Offers",
+        "body": "All information and services displayed on the website are for the purpose of introducing the company's services. The company reserves the right to modify, update, or discontinue any service or offer at any time without prior notice."
+      },
+      {
+        "title": "Pricing & Offers",
+        "body": "Published prices or estimates — if any — are indicative and may vary depending on project requirements and scope. The final price is determined after reviewing the client's requirements and issuing an official quotation."
+      },
+      {
+        "title": "Intellectual Property",
+        "body": "All website content, including texts, logos, designs, images, source code, and trademarks, is owned by ENS Egypt or licensed for its use, and may not be copied, reused, distributed, or modified without prior written consent."
+      },
+      {
+        "title": "Client Projects",
+        "body": "The company commits to delivering projects in accordance with the contract or agreement concluded with the client. The client is entitled to use the project after settling all agreed financial dues, unless the contract states otherwise."
+      },
+      {
+        "title": "Payments",
+        "body": "The client agrees to make payments according to the agreed payment schedule. The company reserves the right to suspend work or postpone project delivery in the event of delayed payments."
+      },
+      {
+        "title": "Support & Maintenance",
+        "body": "Technical support or maintenance services are provided according to the packages or contracts concluded with the client, and do not include any additional services not specified therein except by a new agreement."
+      },
+      {
+        "title": "User Responsibility",
+        "body": "The user is responsible for the accuracy of the information provided to the company, and for maintaining the confidentiality of their login credentials, if any."
+      },
+      {
+        "title": "Limitation of Liability",
+        "body": "The company makes every effort to ensure the accuracy of information and the availability of the website, but does not guarantee that the website will be free from interruptions or technical errors. The company is not liable for any indirect losses or damages resulting from use of the website or reliance on its content."
+      },
+      {
+        "title": "External Links",
+        "body": "The website may contain links to external websites. The company assumes no responsibility for the content, policies, or practices of those websites."
+      },
+      {
+        "title": "Privacy",
+        "body": "The collection and use of personal data is subject to the company's Privacy Policy, which forms an integral part of these terms and conditions."
+      },
+      {
+        "title": "Amendments",
+        "body": "The company reserves the right to amend these terms and conditions at any time. Continued use of the website after amendments are published constitutes acceptance of the updated version."
+      },
+      {
+        "title": "Governing Law",
+        "body": "These terms and conditions are governed by and construed in accordance with the laws of the Arab Republic of Egypt. Egyptian courts have jurisdiction over any dispute arising therefrom, unless otherwise agreed in writing."
+      },
+      {
+        "title": "Contact",
+        "body": "For any inquiries related to these terms and conditions or the company's services, please contact us through the contact channels published on the official website."
+      }
+    ]
+  },
+  "privacy": {
+    "badge": "Legal",
+    "title": "Privacy Policy",
+    "subtitle": "How ENS Egypt collects, uses, and protects your personal information — with transparency first.",
+    "intro": "At ENS Egypt, we are committed to protecting the privacy of our clients and website visitors, and we handle personal data responsibly and transparently. This policy explains how information is collected, used, and protected when you use our website or services.",
+    "closing": "At ENS Egypt, we are committed to safeguarding your privacy and using your data to deliver the best possible experience, in line with legal and ethical principles of information protection.",
+    "lastUpdated": "Last updated: July 23, 2026",
+    "toc": "On this page",
+    "sectionsLabel": "10 sections",
+    "related": {
+      "label": "Related",
+      "title": "Terms & Conditions",
+      "description": "Review the rules that govern the use of our website and services.",
+      "cta": "Read terms",
+      "href": "/terms"
+    },
+    "contactCta": {
+      "title": "Questions about your privacy?",
+      "body": "Reach out anytime if you want to know more about how we handle your data.",
+      "button": "Contact us"
+    },
+    "sections": [
+      {
+        "title": "How We Use Information",
+        "body": "We use the data we collect in order to:",
+        "items": [
+          "Respond to inquiries and contact requests.",
+          "Provide the requested services.",
+          "Prepare quotations and contracts.",
+          "Improve website performance and user experience.",
+          "Send updates or offers related to our services (with user consent when required).",
+          "Protect the website from misuse or unlawful activity.",
+          "Comply with legal and regulatory obligations."
+        ]
+      },
+      {
+        "title": "Cookies",
+        "body": "The website may use cookies to improve user experience, analyze website performance, and remember certain settings. Users may disable cookies through their browser settings, noting that some website features may be affected."
+      },
+      {
+        "title": "Sharing Information",
+        "body": "We do not sell, rent, or trade users' personal data. We may share certain data in the following cases:",
+        "items": [
+          "With service providers who help us operate the website or deliver services, subject to their obligation to keep the data confidential.",
+          "When there is a legal obligation or an order issued by a competent judicial or governmental authority.",
+          "To protect the rights of the company or users, or to prevent fraud or misuse."
+        ]
+      },
+      {
+        "title": "Data Protection",
+        "body": "We take appropriate technical and administrative measures to protect personal data from unauthorized access, loss, alteration, or unlawful disclosure. Nevertheless, no data transmission over the internet can be guaranteed 100% secure."
+      },
+      {
+        "title": "Data Retention",
+        "body": "We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, or as required by applicable laws and regulations."
+      },
+      {
+        "title": "User Rights",
+        "body": "Subject to applicable laws, users may request to:",
+        "items": [
+          "Access their personal data.",
+          "Correct inaccurate data or update it.",
+          "Request deletion of data where legally possible.",
+          "Object to certain forms of data processing or request restriction.",
+          "Withdraw consent to data processing where processing is based on consent."
+        ]
+      },
+      {
+        "title": "Third-Party Links",
+        "body": "The website may contain links to third-party websites or services. ENS Egypt is not responsible for the privacy policies or content of those websites, and users are advised to review their privacy policies before using their services."
+      },
+      {
+        "title": "Children's Privacy",
+        "body": "Our services are not directed to children below the age defined by local laws, and we do not knowingly collect personal data from them. If we become aware that such data has been collected, we will take appropriate steps to delete it."
+      },
+      {
+        "title": "Privacy Policy Updates",
+        "body": "We may update this policy from time to time to reflect legal, technical, or operational developments. Any update will be published on this page with a revised last-updated date."
+      },
+      {
+        "title": "Contact Us",
+        "body": "If you have any questions or inquiries about this privacy policy or how your personal data is processed, you may contact us through the contact channels published on the official website."
+      }
+    ]
+  },
+  "preloader": {
+    "loading": "Loading",
+    "tagline": "Technology & Artificial Intelligence"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The link you followed is broken or the page has moved. Head back to the homepage to keep browsing.",
+    "home": "Back to home"
+  },
+  "meta": {
+    "title": "ENS Egypt | Software Development & AI Solutions",
+    "description": "An Egyptian company specialized in software development, websites, mobile apps, and AI solutions. We turn your ideas into real digital products.",
+    "pages": {
+      "about": "Learn about ENS Egypt: our vision, mission, and the team behind software and AI solutions."
+    }
+  }
+}
