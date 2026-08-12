@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function HomeVideo({
   desktopSrc,
@@ -9,32 +9,77 @@ export default function HomeVideo({
   desktopSrc: string;
   mobileSrc: string;
 }) {
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
+    const video = videoRef.current;
+    if (!video) return;
 
-  if (isMobile === null) {
-    return <div className="h-full w-full bg-ink-900" aria-hidden />;
-  }
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "true");
+    video.setAttribute("webkit-playsinline", "true");
+    video.setAttribute("muted", "");
+
+    const tryPlay = () => {
+      if (!video.paused) return;
+      void video.play().catch(() => {});
+    };
+
+    tryPlay();
+    video.addEventListener("canplay", tryPlay);
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("loadedmetadata", tryPlay);
+
+    const unlock = () => tryPlay();
+    window.addEventListener("touchstart", unlock, { passive: true });
+    window.addEventListener("touchend", unlock, { passive: true });
+    window.addEventListener("click", unlock);
+
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") tryPlay();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    const retry = window.setInterval(() => {
+      if (video.paused) tryPlay();
+      else window.clearInterval(retry);
+    }, 400);
+    const stopRetry = window.setTimeout(() => window.clearInterval(retry), 10000);
+
+    return () => {
+      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("loadedmetadata", tryPlay);
+      window.removeEventListener("touchstart", unlock);
+      window.removeEventListener("touchend", unlock);
+      window.removeEventListener("click", unlock);
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.clearInterval(retry);
+      window.clearTimeout(stopRetry);
+    };
+  }, [desktopSrc, mobileSrc]);
 
   return (
     <video
-      key={isMobile ? "mobile" : "desktop"}
-      src={isMobile ? mobileSrc : desktopSrc}
+      ref={videoRef}
       autoPlay
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="auto"
       poster="/ens-logo.png"
-      className="h-full w-full object-cover"
+      controls={false}
+      disablePictureInPicture
+      disableRemotePlayback
       aria-hidden
-    />
+      className="h-full w-full object-cover"
+      // iOS Safari inline playback (Low Power Mode / Safari)
+      {...{ "webkit-playsinline": "true", "x5-playsinline": "true" }}
+    >
+      <source src={mobileSrc} type="video/mp4" media="(max-width: 767px)" />
+      <source src={desktopSrc} type="video/mp4" />
+    </video>
   );
 }
