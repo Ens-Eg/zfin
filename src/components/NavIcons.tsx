@@ -1,22 +1,21 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import type { SVGProps } from "react";
 
-type NavIconProps = SVGProps<SVGSVGElement> & {
+type NavIconProps = {
+  className?: string;
   active?: boolean;
   hovered?: boolean;
 };
 
-const svgBase = (props: SVGProps<SVGSVGElement>) => ({
+const svgBase = {
   fill: "none",
   stroke: "currentColor",
   strokeWidth: 1.8,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
   viewBox: "0 0 24 24",
-  ...props,
-});
+};
 
 function iconState(active?: boolean, hovered?: boolean) {
   if (hovered) return "hover";
@@ -34,11 +33,17 @@ const wrap: Variants = {
   active: { scale: 1.06, y: 0 },
 };
 
-export function NavHomeIcon({ active, hovered, ...props }: NavIconProps) {
+export function NavHomeIcon({ active, hovered, className }: NavIconProps) {
   const state = iconState(active, hovered);
 
   return (
-    <motion.svg {...svgBase(props)} initial="idle" animate={state} variants={wrap}>
+    <motion.svg
+      {...svgBase}
+      className={className}
+      initial="idle"
+      animate={state}
+      variants={wrap}
+    >
       <motion.path
         d="m4 11 8-7 8 7"
         variants={{
@@ -52,11 +57,17 @@ export function NavHomeIcon({ active, hovered, ...props }: NavIconProps) {
   );
 }
 
-export function NavServicesIcon({ active, hovered, ...props }: NavIconProps) {
+export function NavServicesIcon({ active, hovered, className }: NavIconProps) {
   const state = iconState(active, hovered);
 
   return (
-    <motion.svg {...svgBase(props)} initial="idle" animate={state} variants={wrap}>
+    <motion.svg
+      {...svgBase}
+      className={className}
+      initial="idle"
+      animate={state}
+      variants={wrap}
+    >
       <motion.polyline
         points="16 18 22 12 16 6"
         variants={{
@@ -77,11 +88,17 @@ export function NavServicesIcon({ active, hovered, ...props }: NavIconProps) {
   );
 }
 
-export function NavShowcasesIcon({ active, hovered, ...props }: NavIconProps) {
+export function NavShowcasesIcon({ active, hovered, className }: NavIconProps) {
   const state = iconState(active, hovered);
 
   return (
-    <motion.svg {...svgBase(props)} initial="idle" animate={state} variants={wrap}>
+    <motion.svg
+      {...svgBase}
+      className={className}
+      initial="idle"
+      animate={state}
+      variants={wrap}
+    >
       <motion.path
         d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"
         variants={{
@@ -111,11 +128,17 @@ export function NavShowcasesIcon({ active, hovered, ...props }: NavIconProps) {
   );
 }
 
-export function NavAboutIcon({ active, hovered, ...props }: NavIconProps) {
+export function NavAboutIcon({ active, hovered, className }: NavIconProps) {
   const state = iconState(active, hovered);
 
   return (
-    <motion.svg {...svgBase(props)} initial="idle" animate={state} variants={wrap}>
+    <motion.svg
+      {...svgBase}
+      className={className}
+      initial="idle"
+      animate={state}
+      variants={wrap}
+    >
       <motion.g
         variants={{
           idle: { y: 0 },
@@ -143,7 +166,7 @@ export function NavAboutIcon({ active, hovered, ...props }: NavIconProps) {
   );
 }
 
-export function NavContactIcon({ active, hovered, ...props }: NavIconProps) {
+export function NavContactIcon({ active, hovered, className }: NavIconProps) {
   const state = iconState(active, hovered);
   const dot = (delay: number): Variants => ({
     idle: { y: 0, opacity: 0.45 },
@@ -156,7 +179,13 @@ export function NavContactIcon({ active, hovered, ...props }: NavIconProps) {
   });
 
   return (
-    <motion.svg {...svgBase(props)} initial="idle" animate={state} variants={wrap}>
+    <motion.svg
+      {...svgBase}
+      className={className}
+      initial="idle"
+      animate={state}
+      variants={wrap}
+    >
       <motion.path
         d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
         variants={{
