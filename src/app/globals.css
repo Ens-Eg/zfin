@@ -53,6 +53,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide iOS Safari/Chrome native play overlay so muted hero can autoplay inline */
+.ens-hero-video::-webkit-media-controls,
+.ens-hero-video::-webkit-media-controls-enclosure,
+.ens-hero-video::-webkit-media-controls-start-playback-button,
+.ens-hero-video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 html[lang="ar"] {
   font-size: 15px;
 }

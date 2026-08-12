@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
+import { playHeroVideo } from "@/lib/playHeroVideo";
 
 const BOT_UA = /bot|crawler|spider|google|bing|yandex|baidu|duckduck|slurp/i;
 
@@ -168,7 +169,12 @@ export default function Preloader() {
   }, []);
 
   return (
-    <AnimatePresence onExitComplete={() => (document.body.style.overflow = "")}>
+    <AnimatePresence
+      onExitComplete={() => {
+        document.body.style.overflow = "";
+        playHeroVideo();
+      }}
+    >
       {visible && (
         <motion.div
           className="fixed inset-0 z-[9999] flex h-dvh w-full items-center justify-center overflow-hidden bg-linear-to-b from-white via-[#f4f2f8] to-[#d8d4e2]"
@@ -178,6 +184,14 @@ export default function Preloader() {
             scale: 1.06,
             filter: "blur(16px)",
             transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+          }}
+          onPointerDown={() => {
+            playHeroVideo();
+            window.dispatchEvent(new Event("ens:unlock-media"));
+          }}
+          onTouchStart={() => {
+            playHeroVideo();
+            window.dispatchEvent(new Event("ens:unlock-media"));
           }}
           role="status"
           aria-live="polite"

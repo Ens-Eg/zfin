@@ -1,73 +1,30 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import HomeVideoUnlock from "@/components/HomeVideoUnlock";
+import { HERO_VIDEO_ID } from "@/lib/playHeroVideo";
 
 export default function HomeVideo({ src }: { src: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = true;
-    video.defaultMuted = true;
-    video.playsInline = true;
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "true");
-    video.setAttribute("muted", "");
-
-    const tryPlay = () => {
-      video.muted = true;
-      void video.play().catch(() => {});
-    };
-
-    tryPlay();
-    video.addEventListener("canplay", tryPlay);
-    video.addEventListener("loadeddata", tryPlay);
-    video.addEventListener("loadedmetadata", tryPlay);
-
-    const unlock = () => tryPlay();
-    window.addEventListener("touchstart", unlock, { passive: true });
-    window.addEventListener("click", unlock);
-
-    const onVisibility = () => {
-      if (document.visibilityState === "visible") tryPlay();
-    };
-    document.addEventListener("visibilitychange", onVisibility);
-
-    const retry = window.setInterval(() => {
-      if (video.paused) tryPlay();
-      else window.clearInterval(retry);
-    }, 300);
-    const stopRetry = window.setTimeout(() => window.clearInterval(retry), 12000);
-
-    return () => {
-      video.removeEventListener("canplay", tryPlay);
-      video.removeEventListener("loadeddata", tryPlay);
-      video.removeEventListener("loadedmetadata", tryPlay);
-      window.removeEventListener("touchstart", unlock);
-      window.removeEventListener("click", unlock);
-      document.removeEventListener("visibilitychange", onVisibility);
-      window.clearInterval(retry);
-      window.clearTimeout(stopRetry);
-    };
-  }, [src]);
-
   return (
-    <video
-      ref={videoRef}
-      src={src}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      controls={false}
-      disablePictureInPicture
-      disableRemotePlayback
-      aria-hidden
-      className="absolute inset-0 h-full w-full object-cover"
-      {...{ "webkit-playsinline": "true", "x5-playsinline": "true" }}
-    />
+    <>
+      <video
+        id={HERO_VIDEO_ID}
+        className="ens-hero-video absolute inset-0 h-full w-full object-cover"
+        src={src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        controls={false}
+        {...{
+          "webkit-playsinline": "true",
+          "x5-playsinline": "true",
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function(){var v=document.getElementById("${HERO_VIDEO_ID}");if(!v)return;v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("playsinline","true");v.setAttribute("webkit-playsinline","true");var p=v.play();if(p&&p.catch)p.catch(function(){});})();`,
+        }}
+      />
+      <HomeVideoUnlock />
+    </>
   );
 }
