@@ -144,20 +144,40 @@ function EnsMark() {
   );
 }
 
+function isIOS() {
+  if (typeof navigator === "undefined") return false;
+  return (
+    /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  );
+}
+
 export default function Preloader() {
   const t = useTranslations("preloader");
   const locale = useLocale();
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (BOT_UA.test(navigator.userAgent)) {
-      setVisible(false);
-      return;
-    }
+    if (BOT_UA.test(navigator.userAgent)) return;
 
     const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
 
+    if (isIOS()) {
+      const onPlaying = () => {
+        setVisible(true);
+        document.body.style.overflow = "hidden";
+        window.setTimeout(() => setVisible(false), 1800);
+      };
+      window.addEventListener("ens:hero-playing", onPlaying, { once: true });
+      playHeroVideo();
+      return () => {
+        window.removeEventListener("ens:hero-playing", onPlaying);
+        document.body.style.overflow = prev;
+      };
+    }
+
+    setVisible(true);
+    document.body.style.overflow = "hidden";
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const hold = reduced ? 900 : 2400;
     const timer = window.setTimeout(() => setVisible(false), hold);

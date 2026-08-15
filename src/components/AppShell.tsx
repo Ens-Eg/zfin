@@ -15,7 +15,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <div
         className={
           isHome
-            ? "relative flex h-dvh flex-col overflow-hidden"
+            ? "relative flex h-dvh flex-col overflow-x-hidden"
             : "flex min-h-full flex-col"
         }
       >

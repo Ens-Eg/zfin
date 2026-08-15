@@ -48,6 +48,25 @@
       }
     }
   },
+  "homeCards": {
+    "label": "Quick links",
+    "about": {
+      "title": "About the company",
+      "description": "An Egyptian tech company building digital solutions to global standards — from the first idea to launch."
+    },
+    "services": {
+      "title": "Our services",
+      "description": "End-to-end solutions across websites, apps, custom systems, AI, hosting, and ongoing support."
+    },
+    "development": {
+      "title": "Development services",
+      "description": "Custom software, high-performance websites and apps, with professional UI/UX design."
+    }
+  },
+  "homeWork": {
+    "title": "Latest work",
+    "viewAll": "View all"
+  },
   "stats": {
     "projects": "Successful Projects",
     "clients": "Happy Clients",

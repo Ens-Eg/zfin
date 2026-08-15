@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { HERO_VIDEO_ID, playHeroVideo } from "@/lib/playHeroVideo";
+import {
+  HERO_VIDEO_ID,
+  markHeroVideoEnded,
+  playHeroVideo,
+} from "@/lib/playHeroVideo";
 
 export default function HomeVideoUnlock() {
   const [needsTap, setNeedsTap] = useState(false);
@@ -9,45 +13,41 @@ export default function HomeVideoUnlock() {
   useEffect(() => {
     playHeroVideo();
 
+    const onPlaying = () => setNeedsTap(false);
+    const onEnded = () => markHeroVideoEnded();
+
+    window.addEventListener("ens:hero-playing", onPlaying);
+    window.addEventListener("ens:unlock-media", playHeroVideo);
+    window.addEventListener("touchstart", playHeroVideo, { passive: true });
+    window.addEventListener("pointerdown", playHeroVideo);
+
     const video = document.getElementById(HERO_VIDEO_ID);
-    if (!(video instanceof HTMLVideoElement)) return;
+    if (video instanceof HTMLVideoElement) {
+      video.loop = false;
+      video.addEventListener("ended", onEnded);
+    }
 
-    const tryPlay = () => playHeroVideo();
-
-    video.addEventListener("canplay", tryPlay);
-    video.addEventListener("loadeddata", tryPlay);
-    video.addEventListener("loadedmetadata", tryPlay);
-    window.addEventListener("touchstart", tryPlay, { passive: true });
-    window.addEventListener("pointerdown", tryPlay);
-    window.addEventListener("click", tryPlay);
-    window.addEventListener("ens:unlock-media", tryPlay);
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") tryPlay();
-    });
-
-    const retry = window.setInterval(() => {
-      if (!video.paused) {
-        window.clearInterval(retry);
-        setNeedsTap(false);
-        return;
+    const timer = window.setTimeout(() => {
+      const el = document.getElementById(HERO_VIDEO_ID);
+      if (
+        el instanceof HTMLVideoElement &&
+        el.paused &&
+        el.dataset.ended !== "1" &&
+        el.currentTime < 0.2
+      ) {
+        setNeedsTap(true);
       }
-      tryPlay();
-    }, 250);
-
-    const showTap = window.setTimeout(() => {
-      if (video.paused) setNeedsTap(true);
-    }, 2800);
+    }, 1200);
 
     return () => {
-      video.removeEventListener("canplay", tryPlay);
-      video.removeEventListener("loadeddata", tryPlay);
-      video.removeEventListener("loadedmetadata", tryPlay);
-      window.removeEventListener("touchstart", tryPlay);
-      window.removeEventListener("pointerdown", tryPlay);
-      window.removeEventListener("click", tryPlay);
-      window.removeEventListener("ens:unlock-media", tryPlay);
-      window.clearInterval(retry);
-      window.clearTimeout(showTap);
+      window.removeEventListener("ens:hero-playing", onPlaying);
+      window.removeEventListener("ens:unlock-media", playHeroVideo);
+      window.removeEventListener("touchstart", playHeroVideo);
+      window.removeEventListener("pointerdown", playHeroVideo);
+      if (video instanceof HTMLVideoElement) {
+        video.removeEventListener("ended", onEnded);
+      }
+      window.clearTimeout(timer);
     };
   }, []);
 
@@ -57,7 +57,7 @@ export default function HomeVideoUnlock() {
     <button
       type="button"
       aria-label="Play"
-      className="absolute inset-0 z-10 cursor-pointer border-0 bg-transparent"
+      className="fixed inset-0 z-1 cursor-pointer border-0 bg-transparent"
       onPointerDown={(e) => {
         e.preventDefault();
         playHeroVideo();
