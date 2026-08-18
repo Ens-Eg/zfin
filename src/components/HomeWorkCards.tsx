@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,7 +10,7 @@ import {
   projectLogoBg,
   type ProjectKey,
 } from "@/data/site";
-import { HERO_VIDEO_ID } from "@/lib/playHeroVideo";
+import { useHeroOverlay } from "@/lib/useHeroOverlay";
 
 const SHOW_AFTER_MS = 18_000;
 const previewKeys = projectKeys.slice(0, 6) as ProjectKey[];
@@ -19,35 +18,7 @@ const previewKeys = projectKeys.slice(0, 6) as ProjectKey[];
 export default function HomeWorkCards() {
   const t = useTranslations("showcases");
   const th = useTranslations("homeWork");
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    let showTimer: number | undefined;
-    let started = false;
-
-    const schedule = () => {
-      if (started) return;
-      started = true;
-      showTimer = window.setTimeout(() => setVisible(true), SHOW_AFTER_MS);
-    };
-
-    const onPlaying = () => schedule();
-    window.addEventListener("ens:hero-playing", onPlaying);
-
-    const video = document.getElementById(HERO_VIDEO_ID);
-    if (video instanceof HTMLVideoElement) {
-      if (!video.paused && video.currentTime > 0) schedule();
-      video.addEventListener("playing", onPlaying);
-    }
-
-    return () => {
-      window.removeEventListener("ens:hero-playing", onPlaying);
-      if (video instanceof HTMLVideoElement) {
-        video.removeEventListener("playing", onPlaying);
-      }
-      if (showTimer) window.clearTimeout(showTimer);
-    };
-  }, []);
+  const visible = useHeroOverlay(SHOW_AFTER_MS);
 
   const track = [...previewKeys, ...previewKeys];
 
@@ -66,12 +37,12 @@ export default function HomeWorkCards() {
             className="pointer-events-auto mx-auto max-w-5xl"
           >
             <div className="mb-2.5 flex items-center justify-between gap-3 px-1">
-              <h2 className="text-xs font-bold tracking-tight text-white drop-shadow sm:text-sm">
+              <h2 className="text-xs font-bold tracking-tight text-brand-700 sm:text-sm">
                 {th("title")}
               </h2>
               <Link
                 href="/showcases"
-                className="text-[11px] font-semibold text-white/85 transition-colors hover:text-white sm:text-xs"
+                className="text-[11px] font-semibold text-brand-700 transition-colors hover:text-brand-800 sm:text-xs"
               >
                 {th("viewAll")}
               </Link>

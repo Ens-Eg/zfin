@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cairo, Inter } from "next/font/google";
+import { Cairo, Source_Sans_3 } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -16,9 +16,10 @@ const cairo = Cairo({
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const sourceSans = Source_Sans_3({
+  variable: "--font-en",
   subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
   display: "swap",
 });
 
@@ -76,10 +77,10 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isArabic ? "rtl" : "ltr"}
-      className={`${cairo.variable} ${inter.variable} h-full antialiased`}
+      className={`${cairo.variable} ${sourceSans.variable} h-full antialiased`}
     >
       <body
-        className={`min-h-full flex flex-col ${isArabic ? cairo.className : inter.className}`}
+        className={`min-h-full flex flex-col ${isArabic ? cairo.className : sourceSans.className}`}
       >
         <JsonLd locale={locale} />
         <NextIntlClientProvider>

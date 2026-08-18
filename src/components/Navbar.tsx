@@ -157,7 +157,11 @@ export default function Navbar() {
                 className="group flex h-10 items-center gap-1.5 rounded-full border border-brand-200 bg-white/70 px-4 text-sm font-bold text-gray-700 transition-all hover:border-brand-400 hover:text-brand-700"
               >
                 <GlobeIcon className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" />
-                {otherLocale === "ar" ? "العربية" : "EN"}
+                {otherLocale === "ar" ? (
+                  <span className="font-ar">العربية</span>
+                ) : (
+                  "EN"
+                )}
               </Link>
               <Link
                 href="/contact"
@@ -177,7 +181,11 @@ export default function Navbar() {
                 className="group flex h-9 items-center gap-1 rounded-full border border-brand-200 bg-white/70 px-3 text-xs font-bold text-gray-700"
               >
                 <GlobeIcon className="h-3.5 w-3.5 transition-transform duration-500 group-hover:rotate-45" />
-                {otherLocale === "ar" ? "ع" : "EN"}
+                {otherLocale === "ar" ? (
+                  <span className="font-ar">ع</span>
+                ) : (
+                  "EN"
+                )}
               </Link>
               <button
                 onClick={() => setOpen((v) => !v)}

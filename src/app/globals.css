@@ -24,7 +24,7 @@
   --color-ink-900: #1b1325;
   --color-ink-800: #241a31;
 
-  --font-sans: var(--font-cairo), var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-cairo), var(--font-en), system-ui, sans-serif;
 
   --animate-marquee: marquee 30s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -69,6 +69,14 @@ html {
 
 html[lang="ar"] {
   font-size: 15px;
+}
+
+html[lang="en"] {
+  font-size: 14px;
+}
+
+.font-ar {
+  font-family: var(--font-cairo), sans-serif;
 }
 
 body {

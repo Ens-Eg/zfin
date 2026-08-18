@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import {
   HERO_VIDEO_ID,
-  markHeroVideoEnded,
   playHeroVideo,
+  startFillVideo,
 } from "@/lib/playHeroVideo";
 
 export default function HomeVideoUnlock() {
@@ -14,7 +14,7 @@ export default function HomeVideoUnlock() {
     playHeroVideo();
 
     const onPlaying = () => setNeedsTap(false);
-    const onEnded = () => markHeroVideoEnded();
+    const onEnded = () => startFillVideo();
 
     window.addEventListener("ens:hero-playing", onPlaying);
     window.addEventListener("ens:unlock-media", playHeroVideo);
@@ -23,7 +23,6 @@ export default function HomeVideoUnlock() {
 
     const video = document.getElementById(HERO_VIDEO_ID);
     if (video instanceof HTMLVideoElement) {
-      video.loop = false;
       video.addEventListener("ended", onEnded);
     }
 
@@ -32,7 +31,7 @@ export default function HomeVideoUnlock() {
       if (
         el instanceof HTMLVideoElement &&
         el.paused &&
-        el.dataset.ended !== "1" &&
+        el.dataset.phase !== "fill" &&
         el.currentTime < 0.2
       ) {
         setNeedsTap(true);

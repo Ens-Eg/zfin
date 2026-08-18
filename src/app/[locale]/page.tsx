@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import HomeVideo from "@/components/HomeVideo";
 import HomeFeatureCards from "@/components/HomeFeatureCards";
+import HomeSkipIntro from "@/components/HomeSkipIntro";
 import HomeWorkCards from "@/components/HomeWorkCards";
 import { buildMetadata } from "@/lib/seo";
 
@@ -46,6 +47,7 @@ export default async function HomePage({
       </h1>
       <p className="sr-only">{t("subtitle")}</p>
       <HomeVideo desktopSrc={desktopSrc} mobileSrc={mobileSrc} />
+      <HomeSkipIntro />
       <HomeFeatureCards />
       <HomeWorkCards />
     </div>
