@@ -20,7 +20,7 @@ export default function HomeVideo({
     <>
       <div
         dangerouslySetInnerHTML={{
-          __html: `<video id="${HERO_VIDEO_ID}" class="ens-hero-video" src="${mobileSrc}" data-desktop-src="${desktopSrc}" data-mobile-src="${mobileSrc}" data-fill-src="${fillSrc}" data-mobile-fill-src="${mobileFillSrc}" data-phase="intro" autoplay muted playsinline webkit-playsinline x5-playsinline preload="auto" style="position:fixed;inset:0;z-index:0;width:100%;height:100%;min-height:100dvh;object-fit:cover;background:#000;pointer-events:none"></video><video src="${fillSrc}" muted playsinline preload="auto" style="display:none"></video><video src="${mobileFillSrc}" muted playsinline preload="auto" style="display:none"></video>`,
+          __html: `<video id="${HERO_VIDEO_ID}" class="ens-hero-video" src="${mobileSrc}" data-desktop-src="${desktopSrc}" data-mobile-src="${mobileSrc}" data-fill-src="${fillSrc}" data-mobile-fill-src="${mobileFillSrc}" data-phase="intro" autoplay muted defaultmuted playsinline webkit-playsinline x5-playsinline preload="auto" disablepictureinpicture disableremoteplayback style="position:fixed;inset:0;z-index:0;width:100%;height:100%;min-height:100dvh;object-fit:cover;background:#000;-webkit-transform:translateZ(0)"></video>`,
         }}
       />
       <script
@@ -60,6 +60,7 @@ export default function HomeVideo({
     v.dataset.phase="fill";
     v.loop=true;
     v.src=fill;
+    if(mobile) v.dataset.mfill="1";
     go();
     window.dispatchEvent(new Event("ens:hero-fill"));
   }

@@ -67,6 +67,10 @@ html {
   height: 0 !important;
 }
 
+.ens-hero-video[data-mfill="1"] {
+  object-position: center calc(50% + 100px);
+}
+
 html[lang="ar"] {
   font-size: 15px;
 }

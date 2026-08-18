@@ -80,6 +80,7 @@ export function startFillVideo(src?: string) {
   video.loop = true;
   prime(video);
   video.src = src || fillVideoSrc(video);
+  if (isHeroMobile()) video.dataset.mfill = "1";
   tryPlay(video);
   window.dispatchEvent(new Event("ens:hero-fill"));
 }
