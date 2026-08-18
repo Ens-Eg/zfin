@@ -41,7 +41,7 @@ export default async function HomePage({
   const mobileSrc =
     locale === "en" ? "/mobile-intro-en.mp4" : "/mobile-intro.mp4";
   return (
-    <div className="relative h-dvh w-full bg-black">
+    <div className="relative h-dvh w-full bg-black max-md:bg-[#dde5e8]">
       <h1 className="sr-only">
         {t("title1")} {t("titleHighlight")} {t("title2")}
       </h1>

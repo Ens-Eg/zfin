@@ -20,7 +20,7 @@ export default function HomeVideo({
     <>
       <div
         dangerouslySetInnerHTML={{
-          __html: `<video id="${HERO_VIDEO_ID}" class="ens-hero-video" src="${mobileSrc}" data-desktop-src="${desktopSrc}" data-mobile-src="${mobileSrc}" data-fill-src="${fillSrc}" data-mobile-fill-src="${mobileFillSrc}" data-phase="intro" autoplay muted defaultmuted playsinline webkit-playsinline x5-playsinline preload="auto" disablepictureinpicture disableremoteplayback style="position:fixed;inset:0;z-index:0;width:100%;height:100%;min-height:100dvh;object-fit:cover;background:#000;-webkit-transform:translateZ(0)"></video>`,
+          __html: `<div class="ens-hero-stage"><video id="${HERO_VIDEO_ID}" class="ens-hero-video" src="${mobileSrc}" data-desktop-src="${desktopSrc}" data-mobile-src="${mobileSrc}" data-fill-src="${fillSrc}" data-mobile-fill-src="${mobileFillSrc}" data-phase="intro" autoplay muted defaultmuted playsinline webkit-playsinline x5-playsinline preload="auto" disablepictureinpicture disableremoteplayback></video></div>`,
         }}
       />
       <script
@@ -42,6 +42,7 @@ export default function HomeVideo({
   v.setAttribute("playsinline","true");
   v.setAttribute("webkit-playsinline","true");
   v.setAttribute("muted","");
+  if(mobile) document.documentElement.classList.add("ens-hero-mobile");
   function go(){
     if(v.dataset.phase!=="fill"&&(v.ended||(v.duration>0&&v.currentTime>=v.duration-0.08))){
       startFill();

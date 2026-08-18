@@ -67,8 +67,46 @@ html {
   height: 0 !important;
 }
 
-.ens-hero-video[data-mfill="1"] {
-  object-position: center calc(50% + 100px);
+.ens-hero-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #000;
+}
+
+.ens-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+html.ens-hero-mobile,
+html.ens-hero-mobile body {
+  background: #dde5e8 !important;
+}
+
+html.ens-hero-mobile .ens-hero-stage {
+  background: #dde5e8;
+}
+
+html.ens-hero-mobile .ens-hero-video {
+  inset: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center top;
+  background: transparent;
+}
+
+html.ens-hero-mobile .ens-hero-video[data-mfill="1"] {
+  top: 100px;
 }
 
 html[lang="ar"] {
