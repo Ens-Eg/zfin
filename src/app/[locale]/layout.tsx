@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Cairo, Source_Sans_3 } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import AppShell from "@/components/AppShell";
+import { GoogleTagManagerNoScript } from "@/components/GoogleTagManagerNoScript";
 import JsonLd from "@/components/JsonLd";
+import { GTM_ID } from "@/lib/gtm";
 import { SITE_NAME, SITE_URL, buildMetadata } from "@/lib/seo";
 import "../globals.css";
 
@@ -79,9 +82,11 @@ export default async function LocaleLayout({
       dir={isArabic ? "rtl" : "ltr"}
       className={`${cairo.variable} ${sourceSans.variable} h-full antialiased`}
     >
+      <GoogleTagManager gtmId={GTM_ID} />
       <body
         className={`min-h-full flex flex-col ${isArabic ? cairo.className : sourceSans.className}`}
       >
+        <GoogleTagManagerNoScript />
         <JsonLd locale={locale} />
         <NextIntlClientProvider>
           <AppShell>{children}</AppShell>
