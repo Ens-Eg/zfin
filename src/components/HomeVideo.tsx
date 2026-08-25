@@ -1,3 +1,4 @@
+import HomeVideoInit from "@/components/HomeVideoInit";
 import HomeVideoUnlock from "@/components/HomeVideoUnlock";
 import {
   FILL_VIDEO_SRC,
@@ -23,61 +24,11 @@ export default function HomeVideo({
           __html: `<div class="ens-hero-stage"><video id="${HERO_VIDEO_ID}" class="ens-hero-video" src="${mobileSrc}" data-desktop-src="${desktopSrc}" data-mobile-src="${mobileSrc}" data-fill-src="${fillSrc}" data-mobile-fill-src="${mobileFillSrc}" data-phase="intro" autoplay muted defaultmuted playsinline webkit-playsinline x5-playsinline preload="auto" disablepictureinpicture disableremoteplayback></video></div>`,
         }}
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(function(){
-  var v=document.getElementById("${HERO_VIDEO_ID}");
-  if(!v)return;
-  var ua=navigator.userAgent||"";
-  var ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
-  var mobile=ios||window.innerWidth<768||/Android|Mobile/i.test(ua);
-  var intro=mobile?(v.getAttribute("data-mobile-src")||""):(v.getAttribute("data-desktop-src")||"");
-  var fill=mobile?(v.getAttribute("data-mobile-fill-src")||"${MOBILE_FILL_VIDEO_SRC}"):(v.getAttribute("data-fill-src")||"${FILL_VIDEO_SRC}");
-  if(intro&&v.getAttribute("src")!==intro) v.setAttribute("src", intro);
-  v.dataset.phase="intro";
-  v.loop=false;
-  v.muted=true;
-  v.defaultMuted=true;
-  v.playsInline=true;
-  v.setAttribute("playsinline","true");
-  v.setAttribute("webkit-playsinline","true");
-  v.setAttribute("muted","");
-  if(mobile) document.documentElement.classList.add("ens-hero-mobile");
-  function go(){
-    if(v.dataset.phase!=="fill"&&(v.ended||(v.duration>0&&v.currentTime>=v.duration-0.08))){
-      startFill();
-      return;
-    }
-    v.muted=true;
-    var p=v.play();
-    if(p&&p.then)p.then(function(){window.dispatchEvent(new Event("ens:hero-playing"));}).catch(function(){});
-  }
-  function startFill(){
-    if(v.dataset.phase==="fill"){
-      v.loop=true;
-      go();
-      return;
-    }
-    v.dataset.phase="fill";
-    v.loop=true;
-    v.src=fill;
-    if(mobile) v.dataset.mfill="1";
-    go();
-    window.dispatchEvent(new Event("ens:hero-fill"));
-  }
-  go();
-  v.addEventListener("canplay",go);
-  v.addEventListener("loadeddata",go);
-  v.addEventListener("playing",function(){window.dispatchEvent(new Event("ens:hero-playing"));});
-  v.addEventListener("ended",startFill);
-  v.addEventListener("timeupdate",function(){
-    if(v.dataset.phase!=="intro") return;
-    if(v.duration>0&&v.currentTime>=v.duration-0.12) startFill();
-  });
-  document.addEventListener("touchstart",go,{passive:true});
-  document.addEventListener("pointerdown",go);
-})();`,
-        }}
+      <HomeVideoInit
+        desktopSrc={desktopSrc}
+        mobileSrc={mobileSrc}
+        fillSrc={fillSrc}
+        mobileFillSrc={mobileFillSrc}
       />
       <HomeVideoUnlock />
     </>

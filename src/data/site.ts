@@ -55,6 +55,9 @@ export const featuredFeatureKeys = [
 
 export type FeaturedFeatureKey = (typeof featuredFeatureKeys)[number];
 
+/** WhatsApp chat (wa.me) — 01555666947 */
+export const WHATSAPP_CHAT_NUMBER = "201555666947";
+
 export const heroTagKeys = [
   "software",
   "mobile",

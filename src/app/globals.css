@@ -94,19 +94,17 @@ html.ens-hero-mobile .ens-hero-stage {
 }
 
 html.ens-hero-mobile .ens-hero-video {
-  inset: auto;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
-  height: auto;
-  min-height: 0;
+  height: 100%;
+  min-height: 100%;
   object-fit: contain;
   object-position: center top;
   background: transparent;
 }
 
 html.ens-hero-mobile .ens-hero-video[data-mfill="1"] {
-  top: 100px;
+  object-position: center 100px;
 }
 
 html[lang="ar"] {

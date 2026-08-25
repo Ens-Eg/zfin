@@ -441,6 +441,14 @@
     "button": "Start Now",
     "buttonSecondary": "Explore Our Services"
   },
+  "whatsappChat": {
+    "label": "Start a WhatsApp chat with ENSEGYPT",
+    "sender": "ENSEGYPT",
+    "message": "Welcome! How can I help you?",
+    "reply": "Reply on WhatsApp",
+    "online": "Online",
+    "time": "now"
+  },
   "footer": {
     "description": "An Egyptian company specialized in software development, web design and development, mobile applications, and AI solutions.",
     "quickLinks": "Quick Links",
