@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import type { MouseEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { WhatsappIcon } from "@/components/icons";
 import { usePathname } from "@/i18n/navigation";
 import { WHATSAPP_CHAT_NUMBER } from "@/data/site";
+import { trackWhatsAppConversion } from "@/lib/gtm";
 
 const defaultMessage = {
   ar: "مرحبًا، أريد الاستفسار عن خدماتكم",
@@ -18,7 +20,14 @@ export default function WhatsAppChat() {
   const isHome = pathname === "/";
   const lang = locale === "ar" ? "ar" : "en";
   const text = encodeURIComponent(defaultMessage[lang]);
-  const href = `https://wa.me/${WHATSAPP_CHAT_NUMBER}?text=${text}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_CHAT_NUMBER}?text=${text}`;
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    trackWhatsAppConversion(() => {
+      window.location.href = whatsappUrl;
+    });
+  };
 
   return (
     <div
@@ -27,10 +36,9 @@ export default function WhatsAppChat() {
       }`}
     >
       <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={whatsappUrl}
         aria-label={t("label")}
+        onClick={handleClick}
         className={`group block overflow-hidden rounded-2xl border transition-transform hover:-translate-y-0.5 active:scale-[0.99] ${
           isHome
             ? "max-md:border-white/30 max-md:bg-white/10 max-md:shadow-[0_8px_28px_rgba(27,19,37,0.08)] max-md:backdrop-blur-md border-black/5 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.18)]"
