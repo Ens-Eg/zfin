@@ -6,6 +6,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import AppShell from "@/components/AppShell";
+import GoogleAdsTag from "@/components/GoogleAdsTag";
 import { GoogleTagManagerNoScript } from "@/components/GoogleTagManagerNoScript";
 import JsonLd from "@/components/JsonLd";
 import { GTM_ID } from "@/lib/gtm";
@@ -82,6 +83,9 @@ export default async function LocaleLayout({
       dir={isArabic ? "rtl" : "ltr"}
       className={`${cairo.variable} ${sourceSans.variable} h-full antialiased`}
     >
+      <head>
+        <GoogleAdsTag />
+      </head>
       <GoogleTagManager gtmId={GTM_ID} />
       <body
         className={`min-h-full flex flex-col ${isArabic ? cairo.className : sourceSans.className}`}
