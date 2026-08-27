@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { GOOGLE_ADS_ID } from "@/lib/gtm";
+import { GA4_ID, GOOGLE_ADS_ID } from "@/lib/gtm";
 
 export default function GoogleAdsTag() {
   return (
@@ -16,6 +16,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GOOGLE_ADS_ID}');
+gtag('config', '${GA4_ID}');
         `}
       </Script>
     </>

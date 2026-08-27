@@ -24,7 +24,7 @@ export default function WhatsAppChat() {
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    trackWhatsAppConversion(() => {
+    trackWhatsAppConversion(whatsappUrl, () => {
       window.location.href = whatsappUrl;
     });
   };
