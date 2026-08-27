@@ -8,9 +8,9 @@ export default function GoogleAdsTag() {
         id="google-ads-gtag-js"
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
-      <Script id="google-ads-gtag-init" strategy="afterInteractive">
+      <Script id="google-ads-gtag-init" strategy="beforeInteractive">
         {`
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
